@@ -8,9 +8,8 @@
   }
 
 :root {
-    /* --dark-green-buttons: rgb(64, 92, 31); */
-    --dark-green-buttons: rgb(99, 193, 99);
-    --darker-green-buttons: rgb(18, 89, 18);
+    --dark-buttons: rgb(208, 90, 90);
+    --darker-buttons: rgb(133, 13, 13);
     --dark-form-background: rgb(63, 5, 5);
     --special-font: 'Caveat', cursive;
     --plain-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -23,7 +22,7 @@ body {
 }
 
 button {
-    background-color: var(--dark-green-buttons);
+    background-color: var(--dark-buttons);
     color: white;
     padding: 0.6rem;
     margin: 0.3rem;
@@ -143,8 +142,6 @@ textarea,
 
 .overlay {
     background-color: rgba(0, 0, 0, 0.461);
-    /* display: none; */
-    /* opacity: 0.33; */
     position: absolute;
     left: 0;
     top: 0;
@@ -187,24 +184,29 @@ button {
     width: 50%;
     margin-bottom: 4rem;
     background-color: transparent;
-    color: var(--dark-green-buttons);
+    color: var(--dark-buttons);
 }
 
 .active_button {
-    background-color: var(--dark-green-buttons);
+    background-color: var(--dark-buttons);
     color: black;
 }
 
 .active_button:hover {
-    background-color: var(--darker-green-buttons);
+    background-color: var(--darker-buttons);
     color: black;
 }
 
 button:hover {
-    background-color: var(--dark-green-buttons);
+    background-color: var(--dark-buttons);
     color: black;
 }
 
+@media only screen and (max-width: 600px){
+    button {
+        min-height: 4rem;
+    }
+}
 
 /***  Footer area ****/
 footer {
