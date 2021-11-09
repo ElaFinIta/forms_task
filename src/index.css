@@ -3,22 +3,53 @@
 *, *:before, *:after {
     /* this fix select being shorter than other inputs */
     box-sizing: border-box; 
-    /* padding: 0px; */
-    /* margin: 0px; */
+    /* padding: 0px;
+    margin: 0px; */
   }
 
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+:root {
+    /* --dark-green-buttons: rgb(64, 92, 31); */
+    --dark-green-buttons: rgb(99, 193, 99);
+    --darker-green-buttons: rgb(18, 89, 18);
+    --dark-form-background: rgb(63, 5, 5);
+    --special-font: 'Caveat', cursive;
+    --plain-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
 
+body {
+    font-family: var(--plain-font)
+}
+
+button {
+    background-color: var(--dark-green-buttons);
+    color: white;
+    padding: 0.6rem;
+    margin: 0.3rem;
+    width: 12rem;
+    border-radius: 4px;
+    border: none;
+}
+
+/***  Header component *****/
+header {
+    padding: 0px;
+    margin: 0px;
+}
+
+header h1 {
+    background-color: var(--dark-form-background);
+    font-size: 3rem;
+    color: white;
+    padding: 2rem;
+    margin: 0px;
+}
 
 /**** Form component *****/
 
 form {
-    background-color: rgb(0, 42, 78);
+    background-color: var(--dark-form-background);
     padding: 1.2rem 0;
     display: flex;
     flex-direction: column;
@@ -42,17 +73,12 @@ label {
 input,
 select,
 textarea,
-button {
+#send_button {
     padding: 0.6rem;
     margin: 0.3rem;
     width: 12rem;
     border-radius: 4px;
     border: none;
-}
-
-button {
-    background-color: rgb(64, 92, 31);
-    color: white;
 }
 
 /**** View component *****/
@@ -69,7 +95,6 @@ button {
     grid-template-rows: repeat(5, 1fr);
     box-shadow: 0 0 5px grey;
 }
-
 
 .grid_item {
     padding-left: 1.2rem;
@@ -109,10 +134,81 @@ button {
 }
 
 .view span {
-    font-family: 'Caveat', cursive;
+    font-family: --special-font;
     padding-left: 1rem;
 }
 
-.popup {
-    display: none;
+
+/***** Popup area *****/
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.461);
+    /* display: none; */
+    /* opacity: 0.33; */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    width: 60%;
+    height: 60%;
+    background-color: white;
+}
+
+.popup p,
+.popup h1 {
+    display: block;
+    padding-left: 2rem;
+}
+
+.popup h1 {
+    padding-top: 3rem;
+}
+
+.button_flex {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 3rem;
+}
+
+button {
+    height: 30%;
+    width: 50%;
+    margin-bottom: 4rem;
+    background-color: transparent;
+    color: var(--dark-green-buttons);
+}
+
+.active_button {
+    background-color: var(--dark-green-buttons);
+    color: black;
+}
+
+.active_button:hover {
+    background-color: var(--darker-green-buttons);
+    color: black;
+}
+
+button:hover {
+    background-color: var(--dark-green-buttons);
+    color: black;
+}
+
+
+/***  Footer area ****/
+footer {
+    display: flex;
+    justify-content: center;
+    font-family: var(--special-font);
+  }

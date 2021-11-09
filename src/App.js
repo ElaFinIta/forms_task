@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import Form from './components/Form';
 import View from './components/View';
 import Popup from './components/Popup';
+import Footer from './components/Footer';
+import Header from './components/Header';
 
 class App extends Component {
   state = {
@@ -10,7 +12,8 @@ class App extends Component {
     lastname: "",
     phonenumber: "",
     role: "",
-    message: ""
+    message: "",
+    showPopup: false
   }
 
   inputHandler = (e) => {
@@ -19,19 +22,31 @@ class App extends Component {
     });
   };
 
+  popupHandler = (e) => {
+    e.preventDefault();
+    this.setState({
+      showPopup: true
+    });
+  };
+
   render() {
+    // rendering props to be used easily later, below
+    const myData = {
+      firstname: this.state.firstname,
+      lastname: this.state.lastname,
+      phone: this.state.phone,
+      role: this.state.role,
+      message: this.state.message
+    }
+
     return (
       <div>
+        <Header />
          {/* props.change in Form */}
-        <Form change={this.inputHandler}/>
-        <View
-          firstname={this.state.firstname}
-          lastname={this.state.lastname}
-          phone={this.state.phone}
-          role={this.state.role}
-          message={this.state.message}
-          />
-          <Popup />
+        <Form change={this.inputHandler} submit={this.popupHandler}/>
+        <View {...myData} />
+          {this.state.showPopup && <Popup {...myData} />}
+        <Footer />
       </div>
     );
   }
