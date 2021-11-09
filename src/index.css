@@ -133,7 +133,7 @@ textarea,
 }
 
 .view span {
-    font-family: --special-font;
+    font-family: var(--special-font);
     padding-left: 1rem;
 }
 
