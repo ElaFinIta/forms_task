@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import Notes from './components/Notes';
 import axios from 'axios';
+import Main from './components/Main';
 
 class App extends Component {
   state = {
@@ -44,7 +45,7 @@ class App extends Component {
       .post('http://localhost:3050/notes', this.state.inputData) 
       .then((res) => {console.log(res);
         this.setState({showPopup: false });
-        window.location.realod();
+        window.location.reload();
       })
       .catch((error) => console.log(error));
   }
@@ -60,10 +61,7 @@ class App extends Component {
           <View {...this.state.inputData} />
         </div>
         {this.state.showPopup && <Popup {...this.state.inputData} postit={this.postHandler} />}
-        {this.state.data.map((item) => (
-          // packing all data for every item and passing to Notes
-          <Notes {...item} key={item.id}/>
-        ))}
+        <Main data={this.state.data}/>
         <Footer />
       </div>
     );

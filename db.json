@@ -22,7 +22,25 @@
       "lastname": "Orange",
       "role": "Other",
       "phone": "050165474",
-      "message": "See you later, allogator"
+      "message": "See you later, alligator"
+    },
+    {
+      "firstname": "Giovanna",
+      "lastname": "Bianchi",
+      "phonenumber": "",
+      "role": "Student",
+      "message": "Ciao a tutti!",
+      "phone": "35436637",
+      "id": 4
+    },
+    {
+      "firstname": "Gattina",
+      "lastname": "Pelosa",
+      "phonenumber": "",
+      "role": "Other",
+      "message": "Mrrrr, miao!",
+      "phone": "54325346",
+      "id": 5
     }
   ]
 }

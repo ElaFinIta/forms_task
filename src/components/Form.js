@@ -43,9 +43,9 @@ const Form = ({submit, change}) => {
                 <label htmlFor="role">Role</label>
                 <select name="role" id="role" onChange={change} required>
                     <option value="" disabled selected>Choose a role...</option>
-                    <option value="teacher">Teacher</option>
-                    <option value="student">Student</option>
-                    <option value="other">Other</option>
+                    <option value="Teacher">Teacher</option>
+                    <option value="Student">Student</option>
+                    <option value="Other">Other</option>
                 </select>
             </div>
             <div className="lab_input">
