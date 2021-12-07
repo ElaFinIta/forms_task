@@ -4,7 +4,6 @@ import View from './components/View';
 import Popup from './components/Popup';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import Notes from './components/Notes';
 import axios from 'axios';
 import Main from './components/Main';
 
