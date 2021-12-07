@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "firstname": "Maria",
+      "lastname": "Rossi",
+      "role": "Teacher",
+      "phone": "0501234506",
+      "message": "Hello, there, nice to meet you"
+    },
+    {
+      "id": 2,
+      "firstname": "Piero",
+      "lastname": "Verdi",
+      "role": "Student",
+      "phone": "050165467",
+      "message": "I was here"
+    },
+    {
+      "id": 3,
+      "firstname": "Angelo",
+      "lastname": "Orange",
+      "role": "Other",
+      "phone": "050165474",
+      "message": "See you later, allogator"
+    }
+  ]
+}

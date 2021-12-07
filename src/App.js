@@ -4,20 +4,31 @@ import View from './components/View';
 import Popup from './components/Popup';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Notes from './components/Notes';
+import axios from 'axios';
 
 class App extends Component {
   state = {
-    firstname: "",
-    lastname: "",
-    phonenumber: "",
-    role: "",
-    message: "",
-    showPopup: false
+    inputData: {
+      firstname: "",
+      lastname: "",
+      phonenumber: "",
+      role: "",
+      message: ""
+    },
+    showPopup: false,
+    data: []
+  }
+
+  componentDidMount() {
+    axios
+    .get("http://localhost:3050/notes")
+    .then((res) => this.setState({ data: res.data}))
   }
 
   inputHandler = (e) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      inputData:{...this.state.inputData, [e.target.name]: e.target.value}
     });
   };
 
@@ -28,23 +39,31 @@ class App extends Component {
     });
   };
 
-  render() {
-    // rendering props to be used easily later, below
-    const myData = {
-      firstname: this.state.firstname,
-      lastname: this.state.lastname,
-      phone: this.state.phone,
-      role: this.state.role,
-      message: this.state.message
-    }
+  postHandler = () => {
+    axios
+      .post('http://localhost:3050/notes', this.state.inputData) 
+      .then((res) => {console.log(res);
+        this.setState({showPopup: false });
+        window.location.realod();
+      })
+      .catch((error) => console.log(error));
+  }
 
+  render() {
     return (
       <div>
         <Header />
          {/* props.change in Form */}
-        <Form change={this.inputHandler} submit={this.popupHandler}/>
-        <View {...myData} />
-          {this.state.showPopup && <Popup {...myData} />}
+        <div className="form_area">
+          <Form change={this.inputHandler} submit={this.popupHandler}/>
+          {/* passing inputData to View */}
+          <View {...this.state.inputData} />
+        </div>
+        {this.state.showPopup && <Popup {...this.state.inputData} postit={this.postHandler} />}
+        {this.state.data.map((item) => (
+          // packing all data for every item and passing to Notes
+          <Notes {...item} key={item.id}/>
+        ))}
         <Footer />
       </div>
     );
