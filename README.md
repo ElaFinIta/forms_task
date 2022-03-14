@@ -16,7 +16,7 @@ Fill in the form and see your information appearing in the notepad. Submit the f
 Submitting is executed by posting into a mock server. To test it, run 
 
 ```shell
-npm start server
+npm run server
 ```
 
 ## Screenshots:
